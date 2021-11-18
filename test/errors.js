@@ -1,6 +1,3 @@
-const fs = require("fs");
-const { to_dmmf } = require("./..");
+const { getDMMF } = require("./..");
+const dmmf = getDMMF("./test/fixtures/errors.prisma");
 
-const dml = fs.readFileSync("./test/fixtures/errors.prisma", "utf8");
-const result = to_dmmf(dml, "errors.prisma");
-console.log(result);

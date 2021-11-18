@@ -21,11 +21,6 @@ attempting the transformation.
 The function returns a prisma DMMF document (a JSON structure).
 
 ```
-/**
-* @param {string} input
-* @param {string} filename
-* @returns {DMMF.Document}
-*/
-export function to_dmmf(input: string, filename: string): DMMF.Document;
+export function getDMMF = (fileName: string): DMMF.Document;
 
 ```

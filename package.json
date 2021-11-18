@@ -1,6 +1,6 @@
 {
   "name": "@tufan-io/wasm-dmmf",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "wasm-pack build --target nodejs",
   "main": "index.js",
   "files": [

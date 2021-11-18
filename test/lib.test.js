@@ -1,11 +1,10 @@
 const fs = require("fs");
-const { to_dmmf } = require("..");
+const { getDMMF } = require("..");
 
-describe("to_dmmf", () => {
+describe("getDMMF", () => {
   it("success", () => {
-    const dml = fs.readFileSync("./test/fixtures/schema.prisma", "utf8");
-    const result = to_dmmf(dml, "success.prisma");
-    expect(result).toMatchInlineSnapshot(`
+    const dmmf = getDMMF("./test/fixtures/schema.prisma");
+    expect(dmmf).toMatchInlineSnapshot(`
 Object {
   "enums": Array [],
   "models": Array [
@@ -118,18 +117,17 @@ Object {
   });
 
   it("error", () => {
-    const dml = fs.readFileSync("./test/fixtures/errors.prisma", "utf8");
     expect(() => {
-      to_dmmf(dml, "errors.prisma");
-    }).toThrowErrorMatchingInlineSnapshot(`
+  getDMMF("./test/fixtures/errors.prisma");
+}).toThrowErrorMatchingInlineSnapshot(`
 "error: Type \\"Posted\\" is neither a built-in type, nor refers to another model, custom type, or enum.
-  -->  errors.prisma:8
+  -->  test/fixtures/errors.prisma:8
    | 
  7 |   id    Int    @id @default(autoincrement())
  8 |   posts Posted[]
    | 
 error: Error validating: You defined the enum \`Status\`. But the current connector does not support enums.
-  -->  errors.prisma:17
+  -->  test/fixtures/errors.prisma:17
    | 
 16 | 
 17 | enum Status {
