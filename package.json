@@ -1,10 +1,10 @@
 {
   "name": "@tufan-io/wasm-dmmf",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "wasm-pack build --target nodejs",
   "main": "index.js",
   "files": [
-    "pkg",
+    "pkg/*",
     "index.js",
     "README.md"
   ],
