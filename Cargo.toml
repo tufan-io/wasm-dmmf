@@ -17,3 +17,7 @@ datamodel = { git = "https://github.com/prisma/prisma-engines" }
 # https://rustwasm.github.io/book/reference/code-size.html#compiling-with-link-time-optimizations-lto
 [profile.release]
 lto = true
+
+# https://github.com/rustwasm/wasm-pack/issues/913#issuecomment-803563120
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false

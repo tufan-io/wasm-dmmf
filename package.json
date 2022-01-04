@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "clean": "rm -rf pkg && rm -rf target",
-    "build": "wasm-pack build --target nodejs",
+    "build": "npm run wasm && rm pkg/.gitignore",
+    "wasm": "wasm-pack build --target nodejs",
     "test": "jest"
   },
   "keywords": [],
