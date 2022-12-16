@@ -1,6 +1,7 @@
 # wasm-dmmf
 
-# Usage
+
+## Install
 
 ```
 # set registry config
@@ -9,6 +10,13 @@ npm config set @tufan-io:registry https://npm.pkg.github.com/tufan-io
 # install the package
 npm i @tufan-io/wasm-dmmf
 ```
+
+## Usage
+
+### _1 and _2
+We have `${something}_1` and `${something}_2`.
+- `_1` use [JsValue::from_serde](https://rustwasm.github.io/wasm-bindgen/reference/arbitrary-data-with-serde.html#an-alternative-approach---using-json)
+- `_2` use [serde_wasm_bindgen::to_value](https://rustwasm.github.io/wasm-bindgen/reference/arbitrary-data-with-serde.html#send-it-to-javascript-with-serde_wasm_bindgento_value).
 
 # Development
 
