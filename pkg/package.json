@@ -1,11 +1,12 @@
 {
-  "name": "wasm-dmmf",
+  "name": "@tufan-io/wasm-dmmf",
   "version": "0.1.0",
   "files": [
     "wasm_dmmf_bg.wasm",
     "wasm_dmmf.js",
     "wasm_dmmf.d.ts"
   ],
-  "main": "wasm_dmmf.js",
-  "types": "wasm_dmmf.d.ts"
+  "module": "wasm_dmmf.js",
+  "types": "wasm_dmmf.d.ts",
+  "sideEffects": false
 }

@@ -1,8 +1,30 @@
 /* tslint:disable */
 /* eslint-disable */
 export const memory: WebAssembly.Memory;
-export function to_dmmf(a: number, b: number, c: number, d: number, e: number): void;
-export function __wbindgen_add_to_stack_pointer(a: number): number;
+export function __wbg_jdbcstring_free(a: number): void;
+export function jdbcstring_new(a: number, b: number, c: number): void;
+export function jdbcstring_sub_protocol(a: number, b: number): void;
+export function jdbcstring_server_name(a: number, b: number): void;
+export function jdbcstring_instance_name(a: number, b: number): void;
+export function jdbcstring_port(a: number): number;
+export function jdbcstring_get(a: number, b: number, c: number, d: number): void;
+export function jdbcstring_set(a: number, b: number, c: number, d: number, e: number, f: number): void;
+export function jdbcstring_to_string(a: number, b: number): void;
+export function __wbg_adonetstring_free(a: number): void;
+export function adonetstring_new(a: number, b: number, c: number): void;
+export function adonetstring_get(a: number, b: number, c: number, d: number): void;
+export function adonetstring_set(a: number, b: number, c: number, d: number, e: number, f: number): void;
+export function adonetstring_to_string(a: number, b: number): void;
+export function pipeline_1(a: number, b: number, c: number): number;
+export function dmmf_1(a: number, b: number): number;
+export function format_1(a: number, b: number, c: number): number;
+export function lint_1(a: number, b: number): number;
+export function pipeline_2(a: number, b: number, c: number): number;
+export function dmmf_2(a: number, b: number): number;
+export function format_2(a: number, b: number, c: number): number;
+export function lint_2(a: number, b: number): number;
 export function __wbindgen_malloc(a: number): number;
 export function __wbindgen_realloc(a: number, b: number, c: number): number;
+export function __wbindgen_add_to_stack_pointer(a: number): number;
 export function __wbindgen_free(a: number, b: number): void;
+export function __wbindgen_exn_store(a: number): void;

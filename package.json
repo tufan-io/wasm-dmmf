@@ -1,23 +1,27 @@
 {
   "name": "@tufan-io/wasm-dmmf",
-  "version": "0.3.0",
-  "description": "wasm-pack build --target nodejs",
-  "main": "index.js",
+  "version": "4.5.0",
+  "main": "dist/index.js",
   "files": [
-    "pkg/*",
-    "index.js",
-    "README.md"
+    "dist"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
-    "clean": "rm -rf pkg && rm -rf target",
-    "build": "npm run wasm && rm pkg/.gitignore",
-    "wasm": "wasm-pack build --target nodejs",
-    "test": "jest"
+    "build": "rm -rf pkg && rm -rf dist && npm run wasm && npm run ts && npm run mv",
+    "mv": "rm -rf dist/pkg && mkdir dist/pkg && cp pkg/wasm_dmmf* dist/pkg",
+    "ts": "tsc index.ts --target es6 --outDir dist --declaration --moduleResolution node",
+    "wasm": "wasm-pack build --release --target web --scope tufan-io"
   },
   "keywords": [],
-  "author": "sramam",
+  "author": "Jayden",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^27.3.1"
+    "@types/node": "^18.11.15",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "@prisma/generator-helper": "^4.5.0"
   }
 }
