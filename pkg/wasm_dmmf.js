@@ -1,5 +1,7 @@
-
+let imports = {};
+imports['__wbindgen_placeholder__'] = module.exports;
 let wasm;
+const { TextDecoder, TextEncoder } = require(`util`);
 
 const heap = new Array(32).fill(undefined);
 
@@ -30,7 +32,7 @@ function takeObject(idx) {
     return ret;
 }
 
-const cachedTextDecoder = new TextDecoder('utf-8', { ignoreBOM: true, fatal: true });
+let cachedTextDecoder = new TextDecoder('utf-8', { ignoreBOM: true, fatal: true });
 
 cachedTextDecoder.decode();
 
@@ -114,7 +116,7 @@ function debugString(val) {
 
 let WASM_VECTOR_LEN = 0;
 
-const cachedTextEncoder = new TextEncoder('utf-8');
+let cachedTextEncoder = new TextEncoder('utf-8');
 
 const encodeString = (typeof cachedTextEncoder.encodeInto === 'function'
     ? function (arg, view) {
@@ -188,97 +190,97 @@ function handleError(f, args) {
 * @param {number} tabwidth
 * @returns {any}
 */
-export function pipeline_1(schema, tabwidth) {
+module.exports.pipeline_1 = function(schema, tabwidth) {
     const ptr0 = passStringToWasm0(schema, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
     const len0 = WASM_VECTOR_LEN;
     const ret = wasm.pipeline_1(ptr0, len0, tabwidth);
     return takeObject(ret);
-}
+};
 
 /**
 * @param {string} schema
 * @returns {any}
 */
-export function dmmf_1(schema) {
+module.exports.dmmf_1 = function(schema) {
     const ptr0 = passStringToWasm0(schema, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
     const len0 = WASM_VECTOR_LEN;
     const ret = wasm.dmmf_1(ptr0, len0);
     return takeObject(ret);
-}
+};
 
 /**
 * @param {string} schema
 * @param {number} tabwidth
 * @returns {any}
 */
-export function format_1(schema, tabwidth) {
+module.exports.format_1 = function(schema, tabwidth) {
     const ptr0 = passStringToWasm0(schema, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
     const len0 = WASM_VECTOR_LEN;
     const ret = wasm.format_1(ptr0, len0, tabwidth);
     return takeObject(ret);
-}
+};
 
 /**
 * @param {string} schema
 * @returns {any}
 */
-export function lint_1(schema) {
+module.exports.lint_1 = function(schema) {
     const ptr0 = passStringToWasm0(schema, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
     const len0 = WASM_VECTOR_LEN;
     const ret = wasm.lint_1(ptr0, len0);
     return takeObject(ret);
-}
+};
 
 /**
 * @param {string} schema
 * @param {number} tabwidth
 * @returns {any}
 */
-export function pipeline_2(schema, tabwidth) {
+module.exports.pipeline_2 = function(schema, tabwidth) {
     const ptr0 = passStringToWasm0(schema, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
     const len0 = WASM_VECTOR_LEN;
     const ret = wasm.pipeline_2(ptr0, len0, tabwidth);
     return takeObject(ret);
-}
+};
 
 /**
 * @param {string} schema
 * @returns {any}
 */
-export function dmmf_2(schema) {
+module.exports.dmmf_2 = function(schema) {
     const ptr0 = passStringToWasm0(schema, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
     const len0 = WASM_VECTOR_LEN;
     const ret = wasm.dmmf_2(ptr0, len0);
     return takeObject(ret);
-}
+};
 
 /**
 * @param {string} schema
 * @param {number} tabwidth
 * @returns {any}
 */
-export function format_2(schema, tabwidth) {
+module.exports.format_2 = function(schema, tabwidth) {
     const ptr0 = passStringToWasm0(schema, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
     const len0 = WASM_VECTOR_LEN;
     const ret = wasm.format_2(ptr0, len0, tabwidth);
     return takeObject(ret);
-}
+};
 
 /**
 * @param {string} schema
 * @returns {any}
 */
-export function lint_2(schema) {
+module.exports.lint_2 = function(schema) {
     const ptr0 = passStringToWasm0(schema, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
     const len0 = WASM_VECTOR_LEN;
     const ret = wasm.lint_2(ptr0, len0);
     return takeObject(ret);
-}
+};
 
 /**
 * A version of `JdbcString` to be used from web-assembly.
 */
-export class AdoNetString {
+class AdoNetString {
 
     static __wrap(ptr) {
         const obj = Object.create(AdoNetString.prototype);
@@ -387,10 +389,11 @@ export class AdoNetString {
         }
     }
 }
+module.exports.AdoNetString = AdoNetString;
 /**
 * A version of `JdbcString` to be used from web-assembly.
 */
-export class JdbcString {
+class JdbcString {
 
     static __wrap(ptr) {
         const obj = Object.create(JdbcString.prototype);
@@ -563,156 +566,97 @@ export class JdbcString {
         }
     }
 }
+module.exports.JdbcString = JdbcString;
 
-async function load(module, imports) {
-    if (typeof Response === 'function' && module instanceof Response) {
-        if (typeof WebAssembly.instantiateStreaming === 'function') {
-            try {
-                return await WebAssembly.instantiateStreaming(module, imports);
+module.exports.__wbindgen_number_new = function(arg0) {
+    const ret = arg0;
+    return addHeapObject(ret);
+};
 
-            } catch (e) {
-                if (module.headers.get('Content-Type') != 'application/wasm') {
-                    console.warn("`WebAssembly.instantiateStreaming` failed because your server does not serve wasm with `application/wasm` MIME type. Falling back to `WebAssembly.instantiate` which is slower. Original error:\n", e);
+module.exports.__wbg_new_b33e1ce63900068f = function() {
+    const ret = new Array();
+    return addHeapObject(ret);
+};
 
-                } else {
-                    throw e;
-                }
-            }
-        }
+module.exports.__wbg_set_5eacdf54c9aafbdf = function(arg0, arg1, arg2) {
+    getObject(arg0)[arg1 >>> 0] = takeObject(arg2);
+};
 
-        const bytes = await module.arrayBuffer();
-        return await WebAssembly.instantiate(bytes, imports);
+module.exports.__wbg_set_20cbc34131e76824 = function(arg0, arg1, arg2) {
+    getObject(arg0)[takeObject(arg1)] = takeObject(arg2);
+};
 
-    } else {
-        const instance = await WebAssembly.instantiate(module, imports);
+module.exports.__wbg_set_724667bfcf762c58 = function(arg0, arg1, arg2) {
+    const ret = getObject(arg0).set(getObject(arg1), getObject(arg2));
+    return addHeapObject(ret);
+};
 
-        if (instance instanceof WebAssembly.Instance) {
-            return { instance, module };
+module.exports.__wbindgen_bigint_from_i64 = function(arg0) {
+    const ret = arg0;
+    return addHeapObject(ret);
+};
 
-        } else {
-            return instance;
-        }
-    }
-}
+module.exports.__wbindgen_object_drop_ref = function(arg0) {
+    takeObject(arg0);
+};
 
-function getImports() {
-    const imports = {};
-    imports.wbg = {};
-    imports.wbg.__wbindgen_number_new = function(arg0) {
-        const ret = arg0;
-        return addHeapObject(ret);
-    };
-    imports.wbg.__wbg_new_b33e1ce63900068f = function() {
-        const ret = new Array();
-        return addHeapObject(ret);
-    };
-    imports.wbg.__wbg_set_5eacdf54c9aafbdf = function(arg0, arg1, arg2) {
-        getObject(arg0)[arg1 >>> 0] = takeObject(arg2);
-    };
-    imports.wbg.__wbg_set_20cbc34131e76824 = function(arg0, arg1, arg2) {
-        getObject(arg0)[takeObject(arg1)] = takeObject(arg2);
-    };
-    imports.wbg.__wbg_set_724667bfcf762c58 = function(arg0, arg1, arg2) {
-        const ret = getObject(arg0).set(getObject(arg1), getObject(arg2));
-        return addHeapObject(ret);
-    };
-    imports.wbg.__wbindgen_bigint_from_i64 = function(arg0) {
-        const ret = arg0;
-        return addHeapObject(ret);
-    };
-    imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
-        takeObject(arg0);
-    };
-    imports.wbg.__wbg_new_fc6bfaed5ca1b77a = function() {
-        const ret = new Object();
-        return addHeapObject(ret);
-    };
-    imports.wbg.__wbindgen_string_new = function(arg0, arg1) {
-        const ret = getStringFromWasm0(arg0, arg1);
-        return addHeapObject(ret);
-    };
-    imports.wbg.__wbindgen_debug_string = function(arg0, arg1) {
-        const ret = debugString(getObject(arg1));
-        const ptr0 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
-        const len0 = WASM_VECTOR_LEN;
-        getInt32Memory0()[arg0 / 4 + 1] = len0;
-        getInt32Memory0()[arg0 / 4 + 0] = ptr0;
-    };
-    imports.wbg.__wbg_parse_6ee5842f178a1772 = function() { return handleError(function (arg0, arg1) {
-        const ret = JSON.parse(getStringFromWasm0(arg0, arg1));
-        return addHeapObject(ret);
-    }, arguments) };
-    imports.wbg.__wbindgen_bigint_from_u64 = function(arg0) {
-        const ret = BigInt.asUintN(64, arg0);
-        return addHeapObject(ret);
-    };
-    imports.wbg.__wbg_new_5a3f0ebfa112424c = function() {
-        const ret = new Map();
-        return addHeapObject(ret);
-    };
-    imports.wbg.__wbindgen_error_new = function(arg0, arg1) {
-        const ret = new Error(getStringFromWasm0(arg0, arg1));
-        return addHeapObject(ret);
-    };
-    imports.wbg.__wbindgen_object_clone_ref = function(arg0) {
-        const ret = getObject(arg0);
-        return addHeapObject(ret);
-    };
-    imports.wbg.__wbindgen_throw = function(arg0, arg1) {
-        throw new Error(getStringFromWasm0(arg0, arg1));
-    };
-    imports.wbg.__wbindgen_is_string = function(arg0) {
-        const ret = typeof(getObject(arg0)) === 'string';
-        return ret;
-    };
+module.exports.__wbg_new_fc6bfaed5ca1b77a = function() {
+    const ret = new Object();
+    return addHeapObject(ret);
+};
 
-    return imports;
-}
+module.exports.__wbindgen_string_new = function(arg0, arg1) {
+    const ret = getStringFromWasm0(arg0, arg1);
+    return addHeapObject(ret);
+};
 
-function initMemory(imports, maybe_memory) {
+module.exports.__wbindgen_debug_string = function(arg0, arg1) {
+    const ret = debugString(getObject(arg1));
+    const ptr0 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+    const len0 = WASM_VECTOR_LEN;
+    getInt32Memory0()[arg0 / 4 + 1] = len0;
+    getInt32Memory0()[arg0 / 4 + 0] = ptr0;
+};
 
-}
+module.exports.__wbg_parse_6ee5842f178a1772 = function() { return handleError(function (arg0, arg1) {
+    const ret = JSON.parse(getStringFromWasm0(arg0, arg1));
+    return addHeapObject(ret);
+}, arguments) };
 
-function finalizeInit(instance, module) {
-    wasm = instance.exports;
-    init.__wbindgen_wasm_module = module;
-    cachedInt32Memory0 = new Int32Array();
-    cachedUint8Memory0 = new Uint8Array();
+module.exports.__wbindgen_bigint_from_u64 = function(arg0) {
+    const ret = BigInt.asUintN(64, arg0);
+    return addHeapObject(ret);
+};
 
+module.exports.__wbg_new_5a3f0ebfa112424c = function() {
+    const ret = new Map();
+    return addHeapObject(ret);
+};
 
-    return wasm;
-}
+module.exports.__wbindgen_error_new = function(arg0, arg1) {
+    const ret = new Error(getStringFromWasm0(arg0, arg1));
+    return addHeapObject(ret);
+};
 
-function initSync(module) {
-    const imports = getImports();
+module.exports.__wbindgen_object_clone_ref = function(arg0) {
+    const ret = getObject(arg0);
+    return addHeapObject(ret);
+};
 
-    initMemory(imports);
+module.exports.__wbindgen_throw = function(arg0, arg1) {
+    throw new Error(getStringFromWasm0(arg0, arg1));
+};
 
-    if (!(module instanceof WebAssembly.Module)) {
-        module = new WebAssembly.Module(module);
-    }
+module.exports.__wbindgen_is_string = function(arg0) {
+    const ret = typeof(getObject(arg0)) === 'string';
+    return ret;
+};
 
-    const instance = new WebAssembly.Instance(module, imports);
+const path = require('path').join(__dirname, 'wasm_dmmf_bg.wasm');
+const bytes = require('fs').readFileSync(path);
 
-    return finalizeInit(instance, module);
-}
+const wasmModule = new WebAssembly.Module(bytes);
+const wasmInstance = new WebAssembly.Instance(wasmModule, imports);
+wasm = wasmInstance.exports;
+module.exports.__wasm = wasm;
 
-async function init(input) {
-    if (typeof input === 'undefined') {
-        input = new URL('wasm_dmmf_bg.wasm', import.meta.url);
-    }
-    const imports = getImports();
-
-    if (typeof input === 'string' || (typeof Request === 'function' && input instanceof Request) || (typeof URL === 'function' && input instanceof URL)) {
-        input = fetch(input);
-    }
-
-    initMemory(imports);
-
-    const { instance, module } = await load(await input, imports);
-
-    return finalizeInit(instance, module);
-}
-
-export { initSync }
-export default init;

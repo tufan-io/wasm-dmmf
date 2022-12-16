@@ -1,8 +1,5 @@
 # wasm-dmmf
 
-A simple hack to expose prisma's to_dmmf function to
-node-land without needing to install binary dependencies.
-
 # Usage
 
 ```
@@ -13,14 +10,31 @@ npm config set @tufan-io:registry https://npm.pkg.github.com/tufan-io
 npm i @tufan-io/wasm-dmmf
 ```
 
-# API
+# Development
 
-Validates the input dml string to be a valid prisma model before
-attempting the transformation.
-
-The function returns a prisma DMMF document (a JSON structure).
-
+## Build
 ```
-export function getDMMF = (fileName: string): DMMF.Document;
+npm run build
+```
 
+## Test
+```
+npm run test
+```
+Since `wasm-dmmf` is intended to used in browser, it is hard to test here.
+So `npm run test` will build it for `node` and test it.
+
+## Prisma Engine Version
+1. Cargo.toml
+```
+dmmf = { git = "https://github.com/prisma/prisma-engines/", tag = "4.5.0" }
+psl = { git = "https://github.com/prisma/prisma-engines/", tag = "4.5.0" }
+```
+
+2. Package.json
+```
+"version": "4.5.0",
+"dependencies": {
+  "@prisma/generator-helper": "^4.5.0"
+}
 ```

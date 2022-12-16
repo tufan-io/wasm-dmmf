@@ -17,6 +17,13 @@ npm i @tufan-io/wasm-dmmf
 npm run build
 ```
 
+## Test
+```
+npm run test
+```
+Since `wasm-dmmf` is intended to used in browser, it is hard to test here.
+So `npm run test` will build it for `node` and test it.
+
 ## Prisma Engine Version
 1. Cargo.toml
 ```

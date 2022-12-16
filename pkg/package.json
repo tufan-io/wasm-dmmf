@@ -6,7 +6,6 @@
     "wasm_dmmf.js",
     "wasm_dmmf.d.ts"
   ],
-  "module": "wasm_dmmf.js",
-  "types": "wasm_dmmf.d.ts",
-  "sideEffects": false
+  "main": "wasm_dmmf.js",
+  "types": "wasm_dmmf.d.ts"
 }
